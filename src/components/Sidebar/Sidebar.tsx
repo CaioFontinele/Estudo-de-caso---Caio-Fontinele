@@ -29,7 +29,7 @@ export const Sidebar = () => {
             </NavIcon>
             Usuários
           </NavItem>
-          <NavItem href="#">
+          <NavItem href="/login">
             <NavIcon>
               <LogOut />
             </NavIcon>
