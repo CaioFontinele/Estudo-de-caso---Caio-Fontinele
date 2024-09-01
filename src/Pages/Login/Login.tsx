@@ -27,13 +27,15 @@ export const Login = () => {
   const [emailCad, setEmailCad] = useState('');
   const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
 
+  
+  //chama os dados da função na apí de sincronizar os dados da API para o Json-server
   useEffect(() => {
     const initializeData = async () => {
       await syncUsersFromDummyToJsonServer();
     };
 
     initializeData();
-  }, []);
+  }, []); //array de dp faz que o evento seja executado uma vez só, evitando rerenderização
 
   
   const validateField = (name: string, value: string) => {
@@ -85,16 +87,14 @@ export const Login = () => {
     try {
       const data = await loginUser(username, password);
       localStorage.setItem('authToken', data.token);
-      console.log(localStorage)
+      //console.log(localStorage)
       navigate('/dashboard'); 
     } catch (error) {
       setError('Falha no login. Verifique suas credenciais.');
     }
   };
 
-  
-
-  
+  //essa função adiciona um novo usuário
   const handleAddUser = async (event: React.FormEvent) => {
     event.preventDefault();
     setError(null);
@@ -108,7 +108,7 @@ export const Login = () => {
     }
   };
 
-  
+  //aqui é onde captura os valores do input
   const handleUserNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
