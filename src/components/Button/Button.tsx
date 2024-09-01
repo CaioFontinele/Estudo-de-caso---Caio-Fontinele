@@ -4,7 +4,7 @@ import { CadastroButton, SubmitButton } from "./styles";
 interface ButtonProps {
     text: string;
     variant?: 'primary' | 'secondary' | 'cadastrar' | 'voltar';
-    onClick: (event: React.FormEvent) => void;
+    onClick: (event: React.FormEvent) => void; //manipulador de eventos que permite os eventos no componente que não me traz retorno de dado
     disabled?: boolean;
   }
   
